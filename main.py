@@ -3,8 +3,9 @@ from torch.utils.data import DataLoader
 from torchvision.transforms import transforms
 import logging
 from dataset.Dataset import TinyImageNet
-from model.cnn import CNN_ReLU, CNN_GELU
-from model.resnet import ResNet18_ReLU, ResNet18_GELU
+from model.cnn import CNN
+from model.resnet import ResNet18
+from model.vit import ViT
 import argparse
 import time
 
@@ -39,7 +40,6 @@ def train(model, train_loader, cfg, device):
     model.train()
     optimizer = torch.optim.SGD(model.parameters(), lr=cfg.lr, momentum=cfg.momentum)
     criterion = torch.nn.CrossEntropyLoss()
-    scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, cfg.epochs * len(train_loader))
     start_time = time.time()  # Start time
     start_mem = torch.cuda.memory_allocated(device)  # Memory usage at the start
 
@@ -53,7 +53,6 @@ def train(model, train_loader, cfg, device):
             loss = criterion(output, target)
             loss.backward()
             optimizer.step()
-            scheduler.step()
             total_loss += loss.item()
             if batch_idx % cfg.log_interval == 0:
                 print('Train Epoch: {} [{}/{} ({:.0f}%)]\tLoss: {:.6f}'.format(
@@ -98,14 +97,12 @@ def test(model, test_loader, device):
 def main(cfg,device):
     train_dataset, test_dataset, train_dataloader, test_dataloader = get_data(cfg)
     net = None
-    if cfg.model == "cnn_relu":
-        net = CNN_ReLU().to(device)
-    elif cfg.model == "res_relu":
-        net = ResNet18_ReLU().to(device)
-    elif cfg.model == "res_gelu":
-        net = ResNet18_GELU().to(device)
-    elif cfg.model == "cnn_gelu":
-        net = CNN_GELU().to(device)
+    if cfg.model == "cnn_relu" or cfg.model == "cnn_gelu" or cfg.model == "cnn_silu":
+        net = CNN(cfg).to(device)
+    elif cfg.model == "res_gelu" or cfg.model == "res_relu" or cfg.model == "res_silu":
+        net = ResNet18(cfg).to(device)
+    else:
+        net = ViT(cfg,device)
     train(net, train_dataloader, cfg, device)
     test(net, test_dataloader, device)
 
