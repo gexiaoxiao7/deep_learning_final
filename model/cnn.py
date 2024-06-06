@@ -9,7 +9,7 @@ class CNN(nn.Module):
         super(CNN, self).__init__()
         self.model = cfg.model
         self.conv1 = nn.Sequential(
-            nn.Conv2d(in_channels=3, out_channels=64, kernel_size=3, stride=1, padding=1),
+            nn.Conv2d(in_channels=1 if cfg.dataset == "mnist" else 3, out_channels=64, kernel_size=3, stride=1, padding=1),
             nn.BatchNorm2d(64),
             nn.ReLU() if self.model == "cnn_relu" else ( nn.GELU() if self.model == "cnn_gelu" else nn.SiLU()),
             nn.MaxPool2d(kernel_size=2, stride=2),
@@ -37,7 +37,8 @@ class CNN(nn.Module):
             nn.Dropout(0.5)
         )
         self.fc1 = nn.Sequential(
-            nn.Linear(512 * 4 * 4, 2048),
+            nn.Linear(512 * 1 * 1,2048) if cfg.dataset == "mnist" else
+            (nn.Linear(512 * 2 * 2, 2048) if cfg.dataset == "CIFAR10" else nn.Linear(512 * 4 * 4, 2048)),
             nn.Dropout(0.5),
             nn.ReLU() if self.model == "cnn_relu" else ( nn.GELU() if self.model == "cnn_gelu" else nn.SiLU()),
         )
@@ -46,7 +47,7 @@ class CNN(nn.Module):
             nn.Dropout(0.5),
             nn.ReLU() if self.model == "cnn_relu" else ( nn.GELU() if self.model == "cnn_gelu" else nn.SiLU()),
         )
-        self.fc3 = nn.Linear(1024, 200)
+        self.fc3 = nn.Linear(1024, cfg.num_classes)
 
     def forward(self, x):
         x = self.conv1(x)

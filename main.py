@@ -2,6 +2,7 @@ import torch
 from torch.utils.data import DataLoader
 from torchvision.transforms import transforms
 import logging
+import torchvision
 from dataset.Dataset import TinyImageNet
 from model.cnn import CNN
 from model.resnet import ResNet18
@@ -15,23 +16,39 @@ logging.basicConfig(filename='training.log', level=logging.INFO)
 def get_args():
     parser = argparse.ArgumentParser()
     parser.add_argument('--batch_size', type=int, default=128, help='input batch size for training (default: 32)')
-    parser.add_argument('--epochs', type=int, default=10, help='number of epochs to train (default: 10)')
+    parser.add_argument('--epochs', type=int, default=5, help='number of epochs to train (default: 10)')
     parser.add_argument('--lr', type=float, default=0.01, help='learning rate (default: 0.01)')
     parser.add_argument('--momentum', type=float, default=0.9, help='SGD momentum (default: 0.9)')
     parser.add_argument('--seed', type=int, default=123, help='random seed (default: 123)')
     parser.add_argument('--log_interval', type=int, default=50, help='how many batches to wait before logging training status')
     parser.add_argument('--save_model', action='store_true', default=False, help='save the current Model')
-    parser.add_argument('--model', type=str,default="cnn_relu", help='choose Model')
+    parser.add_argument('--model', type=str,default="vit_relu", help='choose Model')
+    parser.add_argument('--dataset', type=str,default="CIFAR10", help='choose dataset')
+    parser.add_argument('--inputSize', type=int, default=32)
+    parser.add_argument('--num_classes', type=int, default=10)
     args = parser.parse_args()
     return args
 
 def get_data(cfg):
-    data_dir = "./data/tiny-imagenet-200/"
-    # 转化成tensor格式
-    transform = transforms.Compose([transforms.ToTensor()])
-    dataset_train = TinyImageNet(data_dir, train=True, transform=transform)
-    dataset_test = TinyImageNet(data_dir, train=False, transform=transform)
-    # 转化成loader
+    if cfg.dataset == "imageNet":
+        data_dir = "./data/tiny-imagenet-200/"
+        # 转化成tensor格式
+        transform = transforms.Compose([transforms.ToTensor()])
+        dataset_train = TinyImageNet(data_dir, train=True, transform=transform)
+        dataset_test = TinyImageNet(data_dir, train=False, transform=transform)
+        # 转化成loader
+    elif cfg.dataset == "mnist":
+        path = './data/'
+        transform = torchvision.transforms.Compose([torchvision.transforms.ToTensor(),
+                                        torchvision.transforms.Normalize(mean = [0.5],std = [0.5])])
+        dataset_train = torchvision.datasets.MNIST(path,train = True,transform = transform,download = True)
+        dataset_test = torchvision.datasets.MNIST(path,train = False,transform = transform)
+    elif cfg.dataset == "CIFAR10":
+        path = './data/'
+        transform = torchvision.transforms.Compose([torchvision.transforms.ToTensor(),
+                                        torchvision.transforms.Normalize(mean = [0.5],std = [0.5])])
+        dataset_train = torchvision.datasets.CIFAR10(path,train = True,transform = transform,download = True)
+        dataset_test = torchvision.datasets.CIFAR10(path,train = False,transform = transform)
     train_loader = DataLoader(dataset_train, batch_size=cfg.batch_size, shuffle=True)
     test_loader = DataLoader(dataset_test, batch_size=cfg.batch_size, shuffle=True)
     return dataset_train, dataset_test, train_loader, test_loader
@@ -109,6 +126,6 @@ def main(cfg,device):
 if __name__ == '__main__':
     logging.info('-----------------------------------------Start-------------------------------------------------------')
     cfg = get_args()
-    logging.info(f'batch_size: {cfg.batch_size}, epochs: {cfg.epochs}, lr: {cfg.lr}, model: {cfg.model}')
+    logging.info(f'batch_size: {cfg.batch_size}, epochs: {cfg.epochs}, lr: {cfg.lr}, model: {cfg.model}, dataset: {cfg.dataset}')
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     main(cfg,device)

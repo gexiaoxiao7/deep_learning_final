@@ -18,3 +18,114 @@ INFO:root:-----------------------------------------Start------------------------
 INFO:root:batch_size: 128, epochs: 10, lr: 0.01, model: vit_gelu
 INFO:root:-----------------------------------------Start-------------------------------------------------------
 INFO:root:batch_size: 128, epochs: 10, lr: 0.01, model: vit_gelu
+INFO:root:-----------------------------------------Start-------------------------------------------------------
+INFO:root:batch_size: 128, epochs: 10, lr: 0.01, model: vit_relu
+INFO:root:-----------------------------------------Start-------------------------------------------------------
+INFO:root:batch_size: 128, epochs: 10, lr: 0.01, model: vit_relu
+INFO:root:train loss: [5.175447517038916, 4.636796719582795, 4.424375389238148, 4.257905084763647, 4.125617138869927, 4.019315381794025, 3.9306661539980214, 3.8499821000696755, 3.776286136768663, 3.711004070308812]
+INFO:root:Training time: 6994.0491099357605 seconds
+INFO:root:Memory usage: 710158336 bytes
+INFO:root:Accuracy: 1727/10000 (17.27%)
+INFO:root:Top-5 Accuracy: 3940/10000 (39.4%)
+INFO:root:-----------------------------------------Start-------------------------------------------------------
+INFO:root:batch_size: 128, epochs: 10, lr: 0.01, model: cnn_relu, dataset: CIFAR10
+INFO:root:-----------------------------------------Start-------------------------------------------------------
+INFO:root:batch_size: 128, epochs: 10, lr: 0.01, model: cnn_relu, dataset: CIFAR10
+INFO:root:-----------------------------------------Start-------------------------------------------------------
+INFO:root:batch_size: 128, epochs: 10, lr: 0.01, model: cnn_relu, dataset: CIFAR10
+INFO:root:-----------------------------------------Start-------------------------------------------------------
+INFO:root:batch_size: 128, epochs: 10, lr: 0.01, model: cnn_relu, dataset: CIFAR10
+INFO:root:-----------------------------------------Start-------------------------------------------------------
+INFO:root:-----------------------------------------Start-------------------------------------------------------
+INFO:root:batch_size: 128, epochs: 10, lr: 0.01, model: mnist, dataset: CIFAR10
+INFO:root:-----------------------------------------Start-------------------------------------------------------
+INFO:root:batch_size: 128, epochs: 10, lr: 0.01, model: cnn_relu, dataset: mnist
+INFO:root:-----------------------------------------Start-------------------------------------------------------
+INFO:root:batch_size: 128, epochs: 5, lr: 0.01, model: cnn_relu, dataset: imageNet
+INFO:root:-----------------------------------------Start-------------------------------------------------------
+INFO:root:batch_size: 128, epochs: 5, lr: 0.01, model: cnn_relu, dataset: CIFAR10
+INFO:root:-----------------------------------------Start-------------------------------------------------------
+INFO:root:batch_size: 128, epochs: 5, lr: 0.01, model: cnn_relu, dataset: imageNet
+INFO:root:-----------------------------------------Start-------------------------------------------------------
+INFO:root:batch_size: 128, epochs: 5, lr: 0.01, model: cnn_relu, dataset: imageNet
+INFO:root:-----------------------------------------Start-------------------------------------------------------
+INFO:root:batch_size: 128, epochs: 5, lr: 0.01, model: cnn_relu, dataset: imageNet
+INFO:root:-----------------------------------------Start-------------------------------------------------------
+INFO:root:batch_size: 128, epochs: 5, lr: 0.01, model: cnn_relu, dataset: imageNet
+INFO:root:-----------------------------------------Start-------------------------------------------------------
+INFO:root:batch_size: 128, epochs: 5, lr: 0.01, model: res_relu, dataset: CIFAR10
+INFO:root:-----------------------------------------Start-------------------------------------------------------
+INFO:root:batch_size: 128, epochs: 5, lr: 0.01, model: res_relu, dataset: CIFAR10
+INFO:root:-----------------------------------------Start-------------------------------------------------------
+INFO:root:batch_size: 128, epochs: 5, lr: 0.01, model: res_relu, dataset: mnist
+INFO:root:-----------------------------------------Start-------------------------------------------------------
+INFO:root:batch_size: 128, epochs: 5, lr: 0.01, model: res_relu, dataset: mnist
+INFO:root:-----------------------------------------Start-------------------------------------------------------
+INFO:root:batch_size: 128, epochs: 5, lr: 0.01, model: res_relu, dataset: imageNet
+INFO:root:-----------------------------------------Start-------------------------------------------------------
+INFO:root:batch_size: 128, epochs: 5, lr: 0.01, model: vit_relu, dataset: CIFAR10
+INFO:root:-----------------------------------------Start-------------------------------------------------------
+INFO:root:batch_size: 128, epochs: 5, lr: 0.01, model: vit_relu, dataset: CIFAR10
+INFO:root:train loss: [1.9859648019151614, 1.7316049971543919, 1.5828580042285383, 1.4644319319054293, 1.3839616537703883]
+INFO:root:Training time: 514.2112011909485 seconds
+INFO:root:Memory usage: 706183168 bytes
+INFO:root:Accuracy: 4855/10000 (48.55%)
+INFO:root:Top-5 Accuracy: 9154/10000 (91.54%)
+INFO:root:-----------------------------------------Start-------------------------------------------------------
+INFO:root:batch_size: 128, epochs: 5, lr: 0.01, model: vit_relu, dataset: CIFAR10
+INFO:root:-----------------------------------------Start-------------------------------------------------------
+INFO:root:batch_size: 128, epochs: 5, lr: 0.01, model: vit_relu, dataset: CIFAR10
+INFO:root:-----------------------------------------Start-------------------------------------------------------
+INFO:root:batch_size: 128, epochs: 5, lr: 0.01, model: vit_relu, dataset: CIFAR10
+INFO:root:-----------------------------------------Start-------------------------------------------------------
+INFO:root:batch_size: 128, epochs: 5, lr: 0.01, model: vit_relu, dataset: CIFAR10
+INFO:root:-----------------------------------------Start-------------------------------------------------------
+INFO:root:batch_size: 128, epochs: 5, lr: 0.01, model: vit_relu, dataset: CIFAR10
+INFO:root:-----------------------------------------Start-------------------------------------------------------
+INFO:root:batch_size: 128, epochs: 5, lr: 0.01, model: vit_relu, dataset: CIFAR10
+INFO:root:-----------------------------------------Start-------------------------------------------------------
+INFO:root:batch_size: 128, epochs: 5, lr: 0.01, model: vit_relu, dataset: CIFAR10
+INFO:root:-----------------------------------------Start-------------------------------------------------------
+INFO:root:batch_size: 128, epochs: 5, lr: 0.01, model: vit_relu, dataset: CIFAR10
+INFO:root:-----------------------------------------Start-------------------------------------------------------
+INFO:root:batch_size: 128, epochs: 5, lr: 0.01, model: vit_relu, dataset: CIFAR10
+INFO:root:-----------------------------------------Start-------------------------------------------------------
+INFO:root:batch_size: 128, epochs: 5, lr: 0.01, model: vit_relu, dataset: CIFAR10
+INFO:root:-----------------------------------------Start-------------------------------------------------------
+INFO:root:batch_size: 128, epochs: 5, lr: 0.01, model: vit_relu, dataset: CIFAR10
+INFO:root:-----------------------------------------Start-------------------------------------------------------
+INFO:root:batch_size: 128, epochs: 5, lr: 0.01, model: vit_relu, dataset: CIFAR10
+INFO:root:-----------------------------------------Start-------------------------------------------------------
+INFO:root:batch_size: 128, epochs: 5, lr: 0.01, model: vit_relu, dataset: CIFAR10
+INFO:root:-----------------------------------------Start-------------------------------------------------------
+INFO:root:batch_size: 128, epochs: 5, lr: 0.01, model: vit_relu, dataset: CIFAR10
+INFO:root:-----------------------------------------Start-------------------------------------------------------
+INFO:root:batch_size: 128, epochs: 5, lr: 0.01, model: vit_relu, dataset: CIFAR10
+INFO:root:-----------------------------------------Start-------------------------------------------------------
+INFO:root:batch_size: 128, epochs: 5, lr: 0.01, model: vit_relu, dataset: CIFAR10
+INFO:root:-----------------------------------------Start-------------------------------------------------------
+INFO:root:batch_size: 128, epochs: 5, lr: 0.01, model: vit_relu, dataset: CIFAR10
+INFO:root:-----------------------------------------Start-------------------------------------------------------
+INFO:root:batch_size: 128, epochs: 5, lr: 0.01, model: vit_relu, dataset: CIFAR10
+INFO:root:-----------------------------------------Start-------------------------------------------------------
+INFO:root:batch_size: 128, epochs: 5, lr: 0.01, model: vit_relu, dataset: CIFAR10
+INFO:root:-----------------------------------------Start-------------------------------------------------------
+INFO:root:batch_size: 128, epochs: 5, lr: 0.01, model: vit_relu, dataset: mnist
+INFO:root:-----------------------------------------Start-------------------------------------------------------
+INFO:root:batch_size: 128, epochs: 5, lr: 0.01, model: vit_relu, dataset: mnist
+INFO:root:-----------------------------------------Start-------------------------------------------------------
+INFO:root:batch_size: 128, epochs: 5, lr: 0.01, model: vit_relu, dataset: CIFAR10
+INFO:root:-----------------------------------------Start-------------------------------------------------------
+INFO:root:batch_size: 128, epochs: 5, lr: 0.01, model: vit_relu, dataset: CIFAR10
+INFO:root:-----------------------------------------Start-------------------------------------------------------
+INFO:root:batch_size: 128, epochs: 5, lr: 0.01, model: vit_relu, dataset: mnist
+INFO:root:-----------------------------------------Start-------------------------------------------------------
+INFO:root:batch_size: 128, epochs: 5, lr: 0.01, model: vit_relu, dataset: mnist
+INFO:root:-----------------------------------------Start-------------------------------------------------------
+INFO:root:batch_size: 128, epochs: 5, lr: 0.01, model: vit_relu, dataset: imageNet
+INFO:root:-----------------------------------------Start-------------------------------------------------------
+INFO:root:batch_size: 128, epochs: 5, lr: 0.01, model: cnn_relu, dataset: CIFAR10
+INFO:root:-----------------------------------------Start-------------------------------------------------------
+INFO:root:batch_size: 128, epochs: 5, lr: 0.01, model: cnn_relu, dataset: CIFAR10
+INFO:root:-----------------------------------------Start-------------------------------------------------------
+INFO:root:batch_size: 128, epochs: 5, lr: 0.01, model: cnn_relu, dataset: CIFAR10

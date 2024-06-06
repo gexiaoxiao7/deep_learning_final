@@ -36,10 +36,10 @@ class ResidualBlock(nn.Module):
 
 
 class ResNet18(nn.Module):
-    def __init__(self, cfg,num_classes=200):
+    def __init__(self, cfg):
         super(ResNet18, self).__init__()
         self.model = cfg.model
-        self.conv1 = nn.Conv2d(3, 64, kernel_size=3, stride=1, padding=1)
+        self.conv1 = nn.Conv2d(3 if cfg.dataset != "mnist" else 1, 64, kernel_size=3, stride=1, padding=1)
         self.bn1 = nn.BatchNorm2d(64)
         self.act = nn.ReLU(inplace=True) if self.model == "resnet_relu" else (nn.GELU() if self.model == "resnet_gelu" else nn.SiLU(inplace=True))
         self.layer1 = self._make_layer(64, 64, 2)
@@ -47,7 +47,7 @@ class ResNet18(nn.Module):
         self.layer3 = self._make_layer(128, 256, 2, stride=2)
         self.layer4 = self._make_layer(256, 512, 2, stride=2)
         self.avgpool = nn.AdaptiveAvgPool2d((1, 1))
-        self.fc = nn.Linear(512, num_classes)
+        self.fc = nn.Linear(512, cfg.num_classes)
 
     def _make_layer(self, in_channels, out_channels, blocks, stride=1):
         layers = []
